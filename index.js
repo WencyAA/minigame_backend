@@ -16,27 +16,38 @@ app.use((req, res, next) => {
 
 // // 配置 CORS，允许多个开发环境的源
 // const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002'];
-const allowedOrigins = [
-  'http://localhost:3000',
-  'http://localhost:3001',
-  'http://localhost:3002',
-  'https://minigame-fullstack-web.vercel.app' // <<<<< ADD THIS LINE
-];
+// const allowedOrigins = [
+//   'http://localhost:3000',
+//   'http://localhost:3001',
+//   'http://localhost:3002',
+//   'https://minigame-fullstack-web.vercel.app' // <<<<< ADD THIS LINE
+// ];
+
+// app.use(cors({
+//   origin: (origin, callback) => {
+//     if (!origin) return callback(null, true);
+
+//     if (allowedOrigins.includes(origin)) {
+//       callback(null, origin);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+//   methods: ['GET', 'POST', 'OPTIONS'],
+//   allowedHeaders: ['Content-Type', 'Authorization'],
+//   credentials: true
+// }));
+// Remove the allowedOrigins array:
+// const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002', 'https://minigame-fullstack-web.vercel.app'];
 
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin) return callback(null, true);
-
-    if (allowedOrigins.includes(origin)) {
-      callback(null, origin);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: '*', // This now allows all origins
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }));
+
+
 
 app.use(express.json());
 
