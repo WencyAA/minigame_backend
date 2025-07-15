@@ -28,7 +28,7 @@ app.use((req, res, next) => {
 //     if (!origin) return callback(null, true);
 
 //     if (allowedOrigins.includes(origin)) {
-//       callback(null, origin);
+//       callback(null, origin);git push origin main
 //     } else {
 //       callback(new Error('Not allowed by CORS'));
 //     }
