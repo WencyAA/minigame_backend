@@ -14,8 +14,14 @@ app.use((req, res, next) => {
   next();
 });
 
-// 配置 CORS，允许多个开发环境的源
-const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002'];
+// // 配置 CORS，允许多个开发环境的源
+// const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002'];
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://localhost:3001',
+  'http://localhost:3002',
+  'https://minigame-fullstack-web.vercel.app' // <<<<< ADD THIS LINE
+];
 
 app.use(cors({
   origin: (origin, callback) => {
